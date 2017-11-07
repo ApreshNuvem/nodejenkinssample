@@ -1,0 +1,51 @@
+
+https://github.com/apreshrokalla007/nodesampleservice.git
+
+https://git.heroku.com/sampleherokuappshark.git/
+
+https://git.heroku.com/macabre-phantom-62600.git
+
+
+#BUILD PROJECT
+set +x
+echo "BUILD PROJECT"
+npm install
+
+
+#RUN STATIC ANALYSIS (JSHINT)
+set +x
+echo "RUN STATIC ANALYSIS (JSHINT)"
+./node_modules/.bin/jshint . --exclude-path .jshintignore.txt --reporter=jslint > ./target/jshint.xml .
+
+cat ./target/jshint.xml
+
+#RUN MOCHA TEST LOCALLY
+set +x
+echo "RUN MOCHA TEST LOCALLY"
+#truncate -s 0 ./target/jenkins-test-results.xml
+cd ./target
+touch *.xml
+MOCHA_FILE=./target/jenkins-test-results.xml env BUILD_URL='http://localhost:5000/' ./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter
+
+
+# ******* POSTGRES SQL ***********
+set +x
+echo "CONNECTING TO POSTGRES"
+export PGPASSWORD=apresh509
+#EXECUTING THE DUMP FILE
+psql -d postgres -U apresh --set ON_ERROR_STOP=on < sql/user.sql
+
+# ******* LIVE POSTGRES SQL ***********
+set +x
+echo "CONNECTING TO LIVE POSTGRES"
+export PGPASSWORD=6a1fffcb9884f37a569dc7db611473f3a0df30b1dbd5a03c6fe200eb6edade40
+
+#EXECUTING THE DUMP FILE
+psql -h ec2-23-21-85-76.compute-1.amazonaws.com -d d9vgknh43ooldu -U dzqmcwtpxocfic --set ON_ERROR_STOP=on < table.sql
+
+
+
+
+
+
+
