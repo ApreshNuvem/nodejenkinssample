@@ -5,7 +5,9 @@ https://git.heroku.com/sampleherokuappshark.git/
 
 https://git.heroku.com/macabre-phantom-62600.git
 
+git config credential.helper store
 
+=============================================
 #BUILD PROJECT
 set +x
 echo "BUILD PROJECT"
