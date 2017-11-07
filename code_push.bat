@@ -1,6 +1,6 @@
 echo "Hai"
+cd D:\nodemicroservices\\nodejenkinssample
 D:
-cd D:\nodemicroservices\nodejenkinssample
 git add .
 git commit -m 'modified'
 git push
