@@ -4,8 +4,8 @@ const pg = require('pg'); //npm install pg@6.1.0
 const path = require('path');
 
 var postHTML = 
-	'<html><head><title>Post Example1</title></head>' +
-	'<body>' +
+	'<html><head><title>Post Example</title></head>' +
+	'<body> Post Example' +
 	'<form method="post">' +
 	'<br/><input name="input2"><br>' +
 	'<input type="submit">' +  
@@ -27,8 +27,8 @@ http.createServer(function (req, res,done) {
 if(body==null || body=='' )
 	{
 		postHTML = 
-		'<html><head><title>Post Result 1</title></head>' +
-		'<body> Request Form' +
+		'<html><head><title>Post Result</title></head>' +
+		'<body>' +
 		'<form method="post">' +
 		'<br/><input name="input2"><br>' +
 		'<input type="submit">' +  
@@ -149,7 +149,7 @@ if(body==null || body=='' )
 	
 			console.log('----- END ---- ' );
 			postHTML = 
-			'<html><head><title>Post Result 1</title></head>' +
+			'<html><head><title>Post Result</title></head>' +
 			'<body>' +
 			'<form method="post">' +
 			'<br/><input name="input2"><br>' +
