@@ -1,0 +1,14 @@
+{
+  "name": "BeckerMedia",
+  "version": "0.1.0",
+  "description": "Becker Media App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "trim": "^0.0.1",
+    "pg": "^6.1.0"
+  }
+}
