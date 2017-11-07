@@ -28,7 +28,7 @@ if(body==null || body=='' )
 	{
 		postHTML = 
 		'<html><head><title>Post Result 1</title></head>' +
-		'<body>' +
+		'<body> Request Form' +
 		'<form method="post">' +
 		'<br/><input name="input2"><br>' +
 		'<input type="submit">' +  
