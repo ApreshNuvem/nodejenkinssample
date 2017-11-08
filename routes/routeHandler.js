@@ -5,8 +5,8 @@ var express = require('express');
 var app = express.Router();
 var build = require('../config/build').Build;
 var pg = require('pg');
-//var connectionString = build.Environment[process.env.DATABASE_CONNECT_TYPE].DB.Url;
-var connectionString = build.Environment[build.Type].DB.Url;
+var connectionString = build.Environment[process.env.DATABASE_CONNECT_TYPE].DB.Url;
+//var connectionString = build.Environment[build.Type].DB.Url;
 
 var client = new pg.Client(connectionString);
 
