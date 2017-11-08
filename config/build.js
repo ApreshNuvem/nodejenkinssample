@@ -1,5 +1,5 @@
-'use strict';
-
+(function () {
+   'use strict';
  /*============================================================================
       Author      : Adithya
       Module      : config.build
@@ -41,3 +41,4 @@ exports.Build = {
 				}
     }
 };
+}());

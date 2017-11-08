@@ -1,5 +1,5 @@
-'use strict';
-
+(function () {
+   'use strict';
  /*============================================================================
      Author      : Adithya
      Module      : server.index
@@ -44,3 +44,4 @@ if (cluster.isMaster) {
 } else {
     server();
 }
+}());

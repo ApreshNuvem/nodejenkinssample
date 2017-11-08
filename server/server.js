@@ -1,4 +1,5 @@
-'use strict';
+(function () {
+   'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('../routes/routeHandler');
@@ -16,7 +17,7 @@ function CreateServer() {
     if (buf && buf.length) {
       req.rawBody = buf.toString(encoding || 'utf8');
     }
-  }
+  };
   app.use(bodyParser.json({
     verify: rawBodySaver
   }));
@@ -29,7 +30,7 @@ function CreateServer() {
     limit: '9999kb',
     verify: rawBodySaver,
     type: function() {
-      return true
+      return true;
     }
   }));
   app.use('/', routes);
@@ -38,3 +39,4 @@ function CreateServer() {
   return app;
 }
 module.exports = CreateServer;
+}());
