@@ -27,7 +27,7 @@ http.createServer(function (req, res,done) {
 if(body==null || body=='' )
 	{
 		postHTML = 
-		'<html><head><title>Post Result 2</title></head>' +
+		'<html><head><title>Post Result 1</title></head>' +
 		'<body>' +
 		'<form method="post">' +
 		'<br/><input name="input2"><br>' +
@@ -149,7 +149,7 @@ if(body==null || body=='' )
 	
 			console.log('----- END ---- ' );
 			postHTML = 
-			'<html><head><title>Post Result</title></head>' +
+			'<html><head><title>Post Result 1</title></head>' +
 			'<body>' +
 			'<form method="post">' +
 			'<br/><input name="input2"><br>' +
