@@ -5,7 +5,9 @@ var express = require('express');
 var app = express.Router();
 var build = require('../config/build').Build;
 var pg = require('pg');
-var connectionString = build.Environment[build.Type].DB.Url;
+var connectionString = build.Environment[process.env.DATABASE_CONNECT_TYPE].DB.Url;
+//var connectionString = build.Environment[build.Type].DB.Url;
+
 var client = new pg.Client(connectionString);
 
 
@@ -94,7 +96,9 @@ app.post('/lead', function(req, res, next) {
     "'" + [resp.LeadBuyerID, resp.SourceChannel, resp.VendorID, resp.FName].join("','") + "'" + ")";
   console.log(queryString);
   client.query(queryString, function(error, result) {
+	  
     console.log("err -->", error);
+	if(result)
     console.log("result -->", result.rowCount);
     res.send(resp);
     next();
