@@ -127,8 +127,7 @@ if(body==null || body=='' )
 			 const client = new pg.Client(connectionString);
 
 			 client.connect();
-			 var queryString = "INSERT INTO public.leads (leadbuyer, source, name,vendor) VALUES (" 
-			 + "'" + [LeadBuyerID, SourceChannel, VendorID,firstname].join("','") + "'" + ")";
+			 var queryString = "INSERT INTO public.leads (leadbuyer, source, name,vendor) VALUES ('" + [LeadBuyerID, SourceChannel, VendorID,firstname].join("','") + "'" + ")";
 			 console.log(queryString);
 			 client.query(queryString, function (error, result) {
 				 console.log(error);
