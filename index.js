@@ -27,7 +27,7 @@ http.createServer(function (req, res,done) {
 if(body==null || body=='' )
 	{
 		postHTML = 
-		'<html><head><title>Post Result 1</title></head>' +
+		'<html><head><title>Post Result 2</title></head>' +
 		'<body>' +
 		'<form method="post">' +
 		'<br/><input name="input2"><br>' +
