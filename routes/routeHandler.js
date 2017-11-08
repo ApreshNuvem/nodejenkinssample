@@ -33,13 +33,6 @@ app.get('/', function(req, res, next) {
 });
 
 
-/**
- * Default Homepage
- */
-app.get('/', function(req, res, next) {
-  res.json("This Page is Alive");
-  next();
-});
 
 /**
  * Lead Filtering
