@@ -5,8 +5,10 @@ var express = require('express');
 var app = express.Router();
 var build = require('../config/build').Build;
 var pg = require('pg');
-//var connectionString = build.Environment[process.env.DATABASE_CONNECT_TYPE].DB.Url;
-var connectionString = build.Environment[build.Type].DB.Url;
+var connectionString = build.Environment[process.env.DATABASE_CONNECT_TYPE].DB.Url;
+console.log("process.env.DATABASE_CONNECT_TYPE",process.env.DATABASE_CONNECT_TYPE);
+console.log("build.Environment[process.env.DATABASE_CONNECT_TYPE]",build.Environment[process.env.DATABASE_CONNECT_TYPE]);
+//var connectionString = build.Environment[build.Type].DB.Url;
 
 var client = new pg.Client(connectionString);
 
@@ -17,7 +19,7 @@ var fuc_filt_name=function(arr,str)
 		var Filt = arr.filter(s => s.includes(str));
 		var Val = Filt.toString();
 		if (Val == null || Val == '') {
-		filtname='LeadBuyerID not available';
+		 filtname='LeadBuyerID not available';
 		} else {
 		var arr_2 = Val.split("=");
 		filtname = arr_2[1];	
@@ -29,8 +31,7 @@ var fuc_filt_name=function(arr,str)
  * Default Homepage
  */
 app.get('/', function(req, res, next) {
-  res.json("Welcome to BeckerMedia");
-  next();
+  res.send("<h2>Welcome to BeckerMedia</h2>");
 });
 
 
@@ -100,8 +101,9 @@ app.post('/lead', function(req, res, next) {
     console.log("err -->", error);
 	if(result)
     console.log("result -->", result.rowCount);
+	res.statusCode = 200;
     res.send(resp);
-    next();
+  
   });
 });
 

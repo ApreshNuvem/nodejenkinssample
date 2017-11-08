@@ -8,7 +8,7 @@
       Description : Application server configuration & exporting to access it outside of the file
       =========================================================================*/
 exports.Build = {
-    Type : 'Production', //Production OR Local
+    Type : 'Local', //Production OR Local
     Environment : {
         Local : {
             Host : 'locahost',
