@@ -12,7 +12,7 @@ describe("Test 1",function(){
       request
       .get('lead')
       .set('Accept', 'application/json')
-      .expect(200)
+      .expect(404)
       .end(function(err, res) {
         if (err) return done(err);
         done();
@@ -24,7 +24,7 @@ describe("Test 1",function(){
       request
       .get('lead')
       .set('Accept', 'application/json')
-      .expect(200)
+      .expect(404)
       .end(function(err, res) {
         if (err) return done(err);
         done();
