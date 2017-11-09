@@ -9,7 +9,7 @@ node {
   
     try {
 
-       stage('Checkout'){
+       stage('NodeJs9'){
 
           checkout scm
        }
@@ -21,12 +21,14 @@ node {
         print "Environment will be : ${env.NODE_ENV}"
         
 		echo "INSTALLING DEPENDENCIES"
-		bat "\"${nodeHome}\"\\npm install"
+		npm install
        
 	   echo "RUN STATIC ANALYSIS (JSHINT)"
 	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
+       checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
 
 	   echo "RUN MOCHA TEST LOCALLY"
+	   junit '.target/jenkins-test-results.xml'
 	   MOCHA_FILE=D:/nodemicroservices/nodejenkinssample/target/target/jenkins-test-results.xml 
 	   env BUILD_URL='http://localhost:3000/'
 	   bat "./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
