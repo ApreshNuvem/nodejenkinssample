@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-node('node') {
+node('tester1')  {
 
 
     currentBuild.result = "SUCCESS"
@@ -49,18 +49,11 @@ node('node') {
 
        }
 
-       stage('Build Docker'){
-
-            sh './dockerBuild.sh'
-       }
 
        stage('Deploy'){
 
          echo 'Push to Repo'
-         sh './dockerPushToRepo.sh'
-
-         echo 'ssh to web server and tell it to pull new image'
-         sh 'ssh deploy@xxxxx.xxxxx.com running/xxxxxxx/dockerRun.sh'
+        
 
        }
 
