@@ -21,6 +21,11 @@ node {
          print "Environment will be : ${env.NODE_ENV}"
         
 		echo 'Before'
+				
+		bat "\"${nodeHome}\"\\node.exe -v"
+		bat "\"${nodeHome}\"\\npm -v"
+
+
 		 withEnv(["PATH+NODE=${tool name: 'NodeJs9', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin"]) {
 			sh 'node -v'
 		  }
