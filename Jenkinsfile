@@ -24,7 +24,7 @@ node {
 		bat "\"${nodeHome}\"\\npm install"
        
 	   echo "RUN STATIC ANALYSIS (JSHINT)"
-	   bat "\"${nodeHome}\"\\jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml"
+	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml"
 
 	   echo "RUN MOCHA TEST LOCALLY"
 	  
