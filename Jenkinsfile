@@ -9,6 +9,8 @@ node {
   
     try {
 
+	git credentialsId: 'apreshrokalla', url: 'https://github.com/apreshrokalla007/nodejenkinssample.git'
+
        stage('Checkout'){
 
           checkout scm
@@ -36,15 +38,17 @@ node {
 		    echo "CONNECTING TO POSTGRES"
 		    echo "EXECUTING THE DUMP FILE"
 		   withEnv(['PGPASSWORD=aps@123']) {
-			   bat "psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql"
+			  #bat "psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql"
 		   }
 	   }
 
      
        stage('Deploy'){
 
-         echo 'Push to Repo'
-         echo 'ssh to web server and tell it to pull new image'
+         echo 'Push to Repo'         
+		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
+		}
          
        }
 
