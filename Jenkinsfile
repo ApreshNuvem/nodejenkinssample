@@ -16,22 +16,19 @@ node {
 
        stage('Test'){
 
-         env.NODE_ENV = "test"
+        env.NODE_ENV = "test"
 
-         print "Environment will be : ${env.NODE_ENV}"
+        print "Environment will be : ${env.NODE_ENV}"
         
-		echo 'Before'
-				
-		bat "\"${nodeHome}\"\\node.exe -v"
-		bat "\"${nodeHome}\"\\npm -v"
-
-
-		 withEnv(["PATH+NODE=${tool name: 'NodeJs9', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin"]) {
-			sh 'node -v'
-		  }
-           
-         echo ' node -v'
+		echo "INSTALLING DEPENDENCIES"
+		bat "\"${nodeHome}\"\\npm install"
        
+	   echo "RUN STATIC ANALYSIS (JSHINT)"
+	   ./node_modules/.bin/jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml .
+
+	   echo "RUN MOCHA TEST LOCALLY"
+	   MOCHA_FILE=./target/jenkins-test-results.xml env BUILD_URL='http://localhost:3000/'./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter
+
        }
 
      
