@@ -25,8 +25,8 @@ node {
         print "Environment will be : ${env.NODE_ENV}"
         
 	    echo "RUN STATIC ANALYSIS (JSHINT)"
-	    bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
-        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
+	    bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > target/check-style-results.xml"
+        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/check-style-results.xml', unHealthy: ''
 
 	    echo "RUN TEST"
 	    bat "\"${nodeHome}\"\\npm test"
