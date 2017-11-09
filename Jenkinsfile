@@ -2,7 +2,7 @@
 
 
 
-node {
+nodejs('NodeJs9') {
    currentBuild.result = "SUCCESS"
 	def nodeHome = tool 'NodeJs9'
     env.PATH="${env.PATH}:${nodeHome}/bin"
@@ -14,24 +14,23 @@ node {
           checkout scm
        }
 
+	    stage('Install Dependencies'){
+	    	echo "INSTALLING DEPENDENCIES"
+			npm install
+		}
+		
        stage('Test'){
 
         env.NODE_ENV = "test"
-
         print "Environment will be : ${env.NODE_ENV}"
         
-		echo "INSTALLING DEPENDENCIES"
-		npm install
        
-	   echo "RUN STATIC ANALYSIS (JSHINT)"
-	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
-       checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
+	    echo "RUN STATIC ANALYSIS (JSHINT)"
+	    bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
+        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
 
-	   echo "RUN MOCHA TEST LOCALLY"
-	   junit '.target/jenkins-test-results.xml'
-	   MOCHA_FILE=D:/nodemicroservices/nodejenkinssample/target/target/jenkins-test-results.xml 
-	   env BUILD_URL='http://localhost:3000/'
-	   bat "./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
+	    echo "RUN TEST"
+	    npm test
        }
 
      
