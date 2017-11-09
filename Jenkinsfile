@@ -27,7 +27,9 @@ node {
 	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
 
 	   echo "RUN MOCHA TEST LOCALLY"
-	   MOCHA_FILE=D:/nodemicroservices/nodejenkinssample/target/target/jenkins-test-results.xml env BUILD_URL='http://localhost:3000/'./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter
+	   MOCHA_FILE=D:/nodemicroservices/nodejenkinssample/target/target/jenkins-test-results.xml 
+	   env BUILD_URL='http://localhost:3000/'
+	   bat "./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
        }
 
      
