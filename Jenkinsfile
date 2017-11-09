@@ -4,7 +4,9 @@
 
 node {
    currentBuild.result = "SUCCESS"
-
+	def nodeHome = tool 'nodejs5'
+	env.PATH="${env.PATH}:${nodeHome}/bin"
+  
     try {
 
        stage('Checkout'){
