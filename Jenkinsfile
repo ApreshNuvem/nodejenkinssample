@@ -27,9 +27,7 @@ node {
 	   bat "\"${nodeHome}\"\\jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml"
 
 	   echo "RUN MOCHA TEST LOCALLY"
-	   #MOCHA_FILE=./target/jenkins-test-results.xml env 
-	   #BUILD_URL='http://localhost:3000/'./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter
-
+	  
        }
 
      
@@ -43,8 +41,8 @@ node {
        stage('Cleanup'){
 
          echo 'prune and cleanup'
-         sh 'npm prune'
-         sh 'rm node_modules -rf'
+         bat "\"${nodeHome}\"\\npm prune"
+         bat "\"${nodeHome}\"\\rm node_modules -rf"
 
          mail body: 'project build successful',
                      from: 'apresh.rokalla@appshark.com',
