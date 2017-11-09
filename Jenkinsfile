@@ -4,7 +4,9 @@
 
 node {
    currentBuild.result = "SUCCESS"
-	
+	def nodeHome = tool 'NodeJs9'
+    env.PATH="${env.PATH}:${nodeHome}/bin"
+  
     try {
 
        stage('Checkout'){
@@ -18,7 +20,7 @@ node {
 
          print "Environment will be : ${env.NODE_ENV}"
         
-         node -v
+         sh 'node -v'
          echo ' node -v'
        
        }
