@@ -45,9 +45,10 @@ node {
 
          echo 'Push to Repo' 
 		 git changelog: false, credentialsId: 'machinegit', poll: false, url: 'https://git.heroku.com/beckermediaapp.git'
-		 git push
-		   
-		
+				   
+		sshagent (credentials: ['sshkeyfrommaster']) {			
+			git push beckermediaapp.git'
+		}
          
        }
 
