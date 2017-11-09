@@ -29,11 +29,11 @@ node {
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/check-style-results.xml', unHealthy: ''
 
 	    echo "RUN TEST"
-	    bat "\"${nodeHome}\"\\npm test"
-       }
+			bat "\"${nodeHome}\"\\npm test"
+        }
 
 	    state('Prepare Database'){
-		   echo "CONNECTING TO POSTGRES"
+		    echo "CONNECTING TO POSTGRES"
 		    echo "EXECUTING THE DUMP FILE"
 		   withEnv(['PGPASSWORD=aps@123']) {
 			   bat "psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql"
