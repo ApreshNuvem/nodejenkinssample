@@ -43,10 +43,10 @@ node {
      
        stage('Deploy'){
 
-         echo 'Push to Repo'         
-		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
-		}
+         echo 'Push to Repo' 
+		 git push changelog: false, credentialsId: 'machinegit', poll: false, url: 'https://git.heroku.com/beckermediaapp.git'
+		   
+		
          
        }
 

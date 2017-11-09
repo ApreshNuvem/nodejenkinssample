@@ -32,6 +32,12 @@ app.get('/', function(req, res, next) {
   res.send("<h2>Welcome to BeckerMedia</h2>");
 });
 
+/**
+ * Default Homepage
+ */
+app.get('/test', function(req, res, next) {
+  res.send("<h2>Welcome to BeckerMedia</h2>");
+});
 
 
 /**
