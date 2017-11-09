@@ -2,7 +2,7 @@
 
 
 
-node('NodeJs9') {
+node {
     currentBuild.result = "SUCCESS"
 	def nodeHome = tool 'NodeJs9'
     env.PATH="${env.PATH}:${nodeHome}/bin"
@@ -16,8 +16,11 @@ node('NodeJs9') {
 
 	    stage('Install Dependencies'){
 	    	echo "INSTALLING DEPENDENCIES"
-			npm install
+			nodejs('NodeJs9') {
+				npm install
+			}
 		}
+		
 		
        stage('Test'){
 
