@@ -14,13 +14,13 @@ node {
           checkout scm
        }
 
+	   
+	 
+	   
 	    stage('Install Dependencies'){
-	    	echo "INSTALLING DEPENDENCIES"
-			nodejs('NodeJs9') {
-				npm install
-			}
+	    	echo "INSTALLING DEPENDENCIES"			
+			bat "\"${nodeHome}\"\\npm install"			
 		}
-		
 		
        stage('Test'){
 
@@ -33,8 +33,15 @@ node {
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
 
 	    echo "RUN TEST"
-	    npm test
+	    bat "\"${nodeHome}\"\\npm test"
        }
+
+	     state('Prepare Database'){
+		   echo "CONNECTING TO POSTGRES"
+		   export PGPASSWORD=aps@123
+		   #EXECUTING THE DUMP FILE
+		   #psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql
+	   }
 
      
        stage('Deploy'){
