@@ -41,9 +41,9 @@ node {
          print "Environment will be : ${env.NODE_ENV}"
 
          node -v
-         sh 'npm prune'
-         sh 'npm install'
-         sh 'npm test'
+         npm prune
+         npm install
+         npm test
 
        }
 
@@ -55,11 +55,8 @@ node {
        stage('Deploy'){
 
          echo 'Push to Repo'
-         sh './dockerPushToRepo.sh'
-
          echo 'ssh to web server and tell it to pull new image'
-         sh 'ssh deploy@xxxxx.xxxxx.com running/xxxxxxx/dockerRun.sh'
-
+         
        }
 
        stage('Cleanup'){
@@ -79,7 +76,7 @@ node {
 
     }
     catch (err) {
-
+		echo 'Error'
         currentBuild.result = "FAILURE"
 
             mail body: "project build error is here: ${env.BUILD_URL}" ,
@@ -87,7 +84,7 @@ node {
             replyTo: 'yyyy@yyyy.com',
             subject: 'project build failed',
             to: 'zzzz@yyyyy.com'
-
+        
         throw err
     }
 }
