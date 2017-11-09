@@ -44,8 +44,8 @@ node {
 
          echo 'Push to Repo' 
 		 
-		sshagent (credentials: ['sshkeyfrommaster']) {			
-			bat "git push https://git.heroku.com/beckermediaapp.git"
+		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
 		}
          
        }
