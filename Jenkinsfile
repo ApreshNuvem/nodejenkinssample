@@ -24,10 +24,10 @@ node {
 		bat "\"${nodeHome}\"\\npm install"
        
 	   echo "RUN STATIC ANALYSIS (JSHINT)"
-	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml"
+	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
 
 	   echo "RUN MOCHA TEST LOCALLY"
-	  
+	   MOCHA_FILE=D:/nodemicroservices/nodejenkinssample/target/target/jenkins-test-results.xml env BUILD_URL='http://localhost:3000/'./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter
        }
 
      
