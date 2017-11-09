@@ -34,8 +34,8 @@ node {
 
 	    state('Prepare Database'){
 		   echo "CONNECTING TO POSTGRES"
+		    #EXECUTING THE DUMP FILE
 		   withEnv(['PGPASSWORD=aps@123']) {
-			   #EXECUTING THE DUMP FILE
 			   bat "psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql"
 		   }
 	   }
