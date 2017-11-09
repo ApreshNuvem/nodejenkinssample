@@ -24,7 +24,7 @@ node {
 		bat "\"${nodeHome}\"\\npm install"
        
 	   echo "RUN STATIC ANALYSIS (JSHINT)"
-	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > ./target/check-style-results.xml"
+	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:\nodemicroservices\nodejenkinssample\target\check-style-results.xml"
 
 	   echo "RUN MOCHA TEST LOCALLY"
 	  
@@ -43,13 +43,13 @@ node {
          echo 'prune and cleanup'
          bat "\"${nodeHome}\"\\npm prune"
          bat "\"${nodeHome}\"\\rm node_modules -rf"
-
+/*
          mail body: 'project build successful',
                      from: 'apresh.rokalla@appshark.com',
                      replyTo: 'apresh.rokalla@appshark.com',
                      subject: 'project build successful',
                      to: 'apresh.rokalla@appshark.com'
-                     
+                     */
         input "Deploy to prod?"                     
        }
 
@@ -60,11 +60,13 @@ node {
 		echo 'Error'
         currentBuild.result = "FAILURE"
 
+		/*
             mail body: "project build error is here: ${env.BUILD_URL}" ,
             from: 'apresh.rokalla@appshark.com',
             replyTo: 'apresh.rokalla@appshark.com',
             subject: 'project build failed',
             to: 'apresh.rokalla@appshark.com'
+			*/
         
         throw err
     }
