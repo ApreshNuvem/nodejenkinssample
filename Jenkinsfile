@@ -24,7 +24,7 @@ node {
 		npm install
        
 	   echo "RUN STATIC ANALYSIS (JSHINT)"
-	   jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml
+	   bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
 
 	   echo "RUN MOCHA TEST LOCALLY"
