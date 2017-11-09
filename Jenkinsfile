@@ -44,7 +44,8 @@ node {
        stage('Deploy'){
 
          echo 'Push to Repo' 
-		 git push changelog: false, credentialsId: 'machinegit', poll: false, url: 'https://git.heroku.com/beckermediaapp.git'
+		 git changelog: false, credentialsId: 'machinegit', poll: false, url: 'https://git.heroku.com/beckermediaapp.git'
+		 git push
 		   
 		
          
