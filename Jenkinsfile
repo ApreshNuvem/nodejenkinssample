@@ -18,12 +18,9 @@ node {
 
          print "Environment will be : ${env.NODE_ENV}"
         
-         sh 'node -v'
+         node -v
          echo ' node -v'
-         sh 'npm prune'
-         sh 'npm install'
-         sh 'npm test'
-         echo 'npm test'
+       
        }
 
      
