@@ -9,11 +9,10 @@ node {
   
     try {
 
-	git credentialsId: 'apreshrokalla', url: 'https://github.com/apreshrokalla007/nodejenkinssample.git'
-
        stage('Checkout'){
 
-          checkout scm
+          #checkout scm
+		  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'apreshrokalla', url: 'https://github.com/apreshrokalla007/nodejenkinssample.git']]])
        }
 	   	   
 	   stage('Install Dependencies'){
@@ -44,10 +43,9 @@ node {
        stage('Deploy'){
 
          echo 'Push to Repo' 
-		 git changelog: false, credentialsId: 'machinegit', poll: false, url: 'https://git.heroku.com/beckermediaapp.git'
-				   
-		sshagent (credentials: ['sshkeyfrommaster']) {			
-			git push https://git.heroku.com/beckermediaapp.git'
+		 
+		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
 		}
          
        }
