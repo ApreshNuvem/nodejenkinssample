@@ -20,7 +20,7 @@ node {
 
          print "Environment will be : ${env.NODE_ENV}"
         
-         sh 'node -v'
+         node -v
          echo ' node -v'
        
        }
