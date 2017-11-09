@@ -13,21 +13,17 @@ node {
 
           checkout scm
        }
-
-	   
-	 
-	   
-	    stage('Install Dependencies'){
+	   	   
+	   stage('Install Dependencies'){
 	    	echo "INSTALLING DEPENDENCIES"			
 			bat "\"${nodeHome}\"\\npm install"			
-		}
+	   }
 		
        stage('Test'){
 
         env.NODE_ENV = "test"
         print "Environment will be : ${env.NODE_ENV}"
         
-       
 	    echo "RUN STATIC ANALYSIS (JSHINT)"
 	    bat "jshint . --exclude-path .jshintignore.txt --reporter=checkstyle > D:/nodemicroservices/nodejenkinssample/target/check-style-results.xml"
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '.target/check-style-results.xml', unHealthy: ''
@@ -36,11 +32,12 @@ node {
 	    bat "\"${nodeHome}\"\\npm test"
        }
 
-	     state('Prepare Database'){
+	    state('Prepare Database'){
 		   echo "CONNECTING TO POSTGRES"
-		   export PGPASSWORD=aps@123
-		   #EXECUTING THE DUMP FILE
-		   #psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql
+		   withEnv(['PGPASSWORD=aps@123']) {
+			   #EXECUTING THE DUMP FILE
+			   bat "psql -h 192.168.10.132 -d postgres -U appshark --set ON_ERROR_STOP=on < sql/user.sql"
+		   }
 	   }
 
      
