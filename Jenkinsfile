@@ -20,7 +20,11 @@ node {
 
          print "Environment will be : ${env.NODE_ENV}"
         
-         node -v
+		echo 'Before'
+		 withEnv(["PATH+NODE=${tool name: 'NodeJs9', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin"]) {
+			sh 'node -v'
+		  }
+           
          echo ' node -v'
        
        }
