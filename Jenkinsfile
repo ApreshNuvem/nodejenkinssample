@@ -32,7 +32,7 @@ node {
 			bat "\"${nodeHome}\"\\npm test"
         }
 
-	    state('Prepare Database'){
+	    stage('Prepare Database'){
 		    echo "CONNECTING TO POSTGRES"
 		    echo "EXECUTING THE DUMP FILE"
 		   withEnv(['PGPASSWORD=aps@123']) {
