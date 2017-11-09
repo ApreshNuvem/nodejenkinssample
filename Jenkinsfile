@@ -11,7 +11,7 @@ node {
 
        stage('Checkout'){
 
-          #checkout scm
+          
 		  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'apreshrokalla', url: 'https://github.com/apreshrokalla007/nodejenkinssample.git']]])
        }
 	   	   
