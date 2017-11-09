@@ -2,14 +2,14 @@
 
 
 
-nodejs('NodeJs9') {
-   currentBuild.result = "SUCCESS"
+node('NodeJs9') {
+    currentBuild.result = "SUCCESS"
 	def nodeHome = tool 'NodeJs9'
     env.PATH="${env.PATH}:${nodeHome}/bin"
   
     try {
 
-       stage('NodeJs9'){
+       stage('Checkout'){
 
           checkout scm
        }
