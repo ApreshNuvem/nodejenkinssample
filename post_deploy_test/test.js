@@ -2,8 +2,8 @@
 var supertest = require("supertest");
 var should = require("should");
 
-//var build_url = process.env.BUILD_URL;
-var build_url = "http://localhost:3000/";
+var build_url = process.env.BUILD_URL;
+//var build_url = "http://localhost:3000/";
 var request = supertest.agent(build_url);
 
 console.log("teset",process.env.NODE_ENV);
