@@ -1,3 +1,4 @@
+/*
 (function () {
    'use strict';
 var chai  = require('chai');
@@ -41,3 +42,4 @@ describe('Predeployment Filter Test', function() {
 
 
 }());
+*/
