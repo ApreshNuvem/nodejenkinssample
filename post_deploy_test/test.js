@@ -10,8 +10,7 @@ describe("Test 1",function(){
   it("Check Company Api Status Code 200", function (done) {
       request
       .get('test')
-      .set('Accept', 'application/json')
-      .expect(404)
+      .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
         done();
@@ -21,9 +20,8 @@ describe("Test 1",function(){
   
   it("Check User Api Status Code 200", function (done) {
       request
-      .get('test')
-      .set('Accept', 'application/json')
-      .expect(404)
+      .get('test')      
+      .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
         done();
