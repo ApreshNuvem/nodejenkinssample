@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.07400000000000001" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2017-11-07T08:37:28" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Test 1" timestamp="2017-11-07T08:37:28" tests="2" file="D:\nodemicroservices\nodesampleservice\test\test.js" failures="0" time="0.066">
+    <testcase name="Test 1 Check Company Api Status Code 200" time="0.056" classname="Check Company Api Status Code 200">
+    </testcase>
+    <testcase name="Test 1 Check User Api Status Code 200" time="0.01" classname="Check User Api Status Code 200">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test 2" timestamp="2017-11-07T08:37:28" tests="2" file="D:\nodemicroservices\nodesampleservice\test\test2.js" failures="0" time="0.008">
+    <testcase name="Test 2 Check user2 Api Status Code 200  " time="0.003" classname="Check user2 Api Status Code 200  ">
+    </testcase>
+    <testcase name="Test 2 Check user3 Api Status Code 200  " time="0.005" classname="Check user3 Api Status Code 200  ">
+    </testcase>
+  </testsuite>
+</testsuites>
