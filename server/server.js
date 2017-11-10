@@ -34,7 +34,7 @@ function CreateServer() {
     }
   }));
   app.use('/', routes);
-  app.listen(build.Environment[build.Type].Port);
+  //app.listen(build.Environment[build.Type].Port);
   console.log("Listening on --->", build.Environment[build.Type].Port);
   return app;
 }
