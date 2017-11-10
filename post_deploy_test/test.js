@@ -1,3 +1,4 @@
+/*
 var supertest = require("supertest");
 var should = require("should");
 
@@ -34,3 +35,4 @@ describe("Test 1",function(){
    });
 
 });
+*/
