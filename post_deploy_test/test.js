@@ -6,8 +6,6 @@ var build_url = process.env.BUILD_URL;
 //var build_url = "http://localhost:3000/";
 var request = supertest.agent(build_url);
 
-console.log("teset",process.env.NODE_ENV);
-
 console.log(build_url);
 describe("Test 1",function(){
 
