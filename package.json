@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node server",    	    
-	"test": "mocha post_deploy_test"
+	"test": "mocha"
   },
   "dependencies": {
     "async": "^2.6.0",
