@@ -8,6 +8,12 @@ node {
     env.PATH="${env.PATH}:${nodeHome}/bin"
   
     try {
+	
+	 stage('Prepare Database'){
+		    echo "CONNECTING TO POSTGRES"
+		    echo "EXECUTING THE DUMP FILE"
+		   
+	   }
 
        stage('Checkout'){
 
@@ -33,19 +39,14 @@ node {
 			bat "\"${nodeHome}\"\\npm test"
         }
 
-	    stage('Prepare Database'){
-		    echo "CONNECTING TO POSTGRES"
-		    echo "EXECUTING THE DUMP FILE"
-		   
-	   }
-
+	   
      
        stage('Deploy'){
 
          echo 'Push to Repo' 
-		 
+		 bat "git status"
 		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-			bat "git -c http.sslVerify=false push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
+			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
 		}
          
        }
