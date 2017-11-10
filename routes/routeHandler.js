@@ -29,7 +29,7 @@ var fuc_filt_name=function(arr,str)
 		filtname = arr_2[1];	
 
 		}
-	filtname=filtname.replace("'","''");
+filtname=filtname.replace("'","''");
 	return filtname;
 
 };
@@ -202,5 +202,5 @@ app.post('/lead', function(req, res, next) {
   });
 });
 module.exports = app;
-module.exports = fuc_filt_name;
+module.exports = {filter_by_param:fuc_filt_name};
 }());

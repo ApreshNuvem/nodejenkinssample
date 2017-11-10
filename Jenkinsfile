@@ -45,7 +45,7 @@ node {
          echo 'Push to Repo' 
 		 
 		withCredentials([usernamePassword(credentialsId: 'machinegit', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-			bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
+			bat "git -c http.sslVerify=false push https://${GIT_USERNAME}:${GIT_PASSWORD}@beckermediaapp.git"
 		}
          
        }
