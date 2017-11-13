@@ -53,11 +53,11 @@ var functionvalidation=function(arr,resp){
 	//console.log("result countt -->", result.rowCount);
 	//console.log("result -->", result);
 	//res.json(result);
-	};
+	}
 	
   });
   return status_val;
-}
+};
 
 /**
  * Default Homepage
@@ -128,7 +128,7 @@ app.post('/lead', function(req, res, next) {
 		}	
 	}
 	// /////////////// Validations Start as per Client wise Configuration //////////////////////////////////////
-	};
+	}
 		if(status_val=='t'){
 		resp.ClientStatusCode='200';
 		console.log('Status=','200');
