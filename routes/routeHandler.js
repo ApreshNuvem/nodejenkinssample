@@ -63,8 +63,18 @@ var functionvalidation=function(arr,resp){
  * Default Homepage
  */
 app.get('/', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V1 </h2>");
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
 });
+
+/**
+ * Default Homepage
+ */
+app.get('/test1', function(req, res, next) {
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
+});
+
+
+
 
 app.get('/test', function(req, res, next) {
 	res.status(200);
