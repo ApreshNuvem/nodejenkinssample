@@ -73,6 +73,14 @@ app.get('/test', function(req, res, next) {
   res.end();
 });
 
+app.get('/test2', function(req, res, next) {
+	res.status(200);
+	 res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("<h2>Welcome to BeckerMedia</h2>");
+  res.end();
+});
+
+
 /**
  * Lead Filtering
  */

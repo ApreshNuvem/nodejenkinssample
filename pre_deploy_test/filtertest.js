@@ -38,5 +38,3 @@ describe('Predeployment Filter Test', function() {
   
 });
 
-
-}());
