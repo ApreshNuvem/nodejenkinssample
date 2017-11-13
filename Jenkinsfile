@@ -36,7 +36,12 @@ node {
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'target/check-style-results.xml', unHealthy: ''
 
 	    echo "RUN TEST"
+		withEnv(['BUILD_URL=http://localhost:3000/']) {
+			// some block
 			bat "\"${nodeHome}\"\\npm test"
+		}
+
+			
         }
 
 	   
