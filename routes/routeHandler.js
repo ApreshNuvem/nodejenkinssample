@@ -63,9 +63,15 @@ var functionvalidation=function(arr,resp){
  * Default Homepage
  */
 app.get('/', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia - V4 </h2>");
+  res.send("<h2>Welcome to BeckerMedia - V4 </h2>");
 });
 
+/**
+ * Default Homepage
+ */
+app.get('/2', function(req, res, next) {
+  res.send("<h2>Welcome to BeckerMedia - V4 </h2>");
+});
 /**
  * Default Homepage
  */
