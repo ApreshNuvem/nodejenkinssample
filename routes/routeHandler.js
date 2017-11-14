@@ -171,8 +171,8 @@ res.send("<h2>Welcome to newapi1 </h2>");
 /**
  * Default Homepage
  */
-app.get('/newap2', function(req, res, next) {
-res.send("<h2>Welcome to newapi2 </h2>");
+app.get('/newap23', function(req, res, next) {
+res.send("<h2>Welcome to newapi23 </h2>");
 
 });
 
