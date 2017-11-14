@@ -337,4 +337,9 @@ res.send("<h2>newapi1 </h2>");
 });
 
 
+app.get('/newapi2', function(req, res, next) {
+res.send("<h2>newapi2 </h2>");
+});
+
+
 }());
