@@ -53,11 +53,11 @@ var functionvalidation=function(arr,resp){
 	}
 	//console.log("result countt -->", result.rowCount);
 	//console.log("result -->", result);
-	//res.json(result);
+	//res.json(result)
 	}
 	
   });
-  return status_val;
+  return status_val
 };
 
 /**
@@ -128,7 +128,7 @@ app.post('/lead', function(req, res, next) {
 			 if (filtname == null || filtname == 'NA') {
 				resp.ClientStatusCode= rowval.statuscode;				
 				console.log(rowval.leadcolname+' Status=', rowval.statuscode);
-				status_val='f';
+				status_val='f'
 				break;
 			 }
 		}	
@@ -163,7 +163,7 @@ module.exports = app;
  * Default Homepage
  */
 app.get('/newapi1', function(req, res, next) {
-res.send("<h2>Welcome to newapi1 </h2>");
+res.send("<h2>Welcome to newapi1 </h2>")
 
 });
 
