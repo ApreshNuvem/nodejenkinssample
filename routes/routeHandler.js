@@ -63,7 +63,7 @@ var functionvalidation=function(arr,resp){
  * Default Homepage
  */
 app.get('/', function(req, res, next) {
-res.send("<h2>Welcome to BeckerMedia </h2>");
+res.send("<h2>Welcome to BeckerMedia - V5 </h2>");
 });
 
 app.get('/test', function(req, res, next) {
@@ -218,6 +218,37 @@ var functionvalidation=function(arr,resp){
   return status_val;
 };
 
+/**
+ * Default Homepage
+ */
+app.get('/', function(req, res, next) {
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V3 </h2>");
+});
+
+/**
+ * Default Homepage
+ */
+app.get('/test1', function(req, res, next) {
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
+});
+
+
+
+
+app.get('/test', function(req, res, next) {
+	res.status(200);
+	 res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("<h2>Welcome to BeckerMedia</h2>");
+  res.end();
+});
+
+app.get('/test2', function(req, res, next) {
+	res.status(200);
+	 res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("<h2>Welcome to BeckerMedia</h2>");
+  res.end();
+});
+
 
 /**
  * Lead Filtering
@@ -296,28 +327,15 @@ app.post('/lead', function(req, res, next) {
 module.exports = app;
 //module.exports = {filter_by_param:fuc_filt_name};
 
-/**
- * Default Homepage
- */
-app.get('/', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V1 </h2>");
-});
+
 
 /**
  * Default Homepage
  */
-app.get('/test1', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
+app.get('/newapi', function(req, res, next) {
+res.send("<h2>Welcome to BeckerMedia </h2>");
+
 });
-
-
-app.get('/test', function(req, res, next) {
-	res.status(200);
-	 res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("<h2>Welcome to BeckerMedia</h2>");
-  res.end();
-});
-
 
 
 }());
