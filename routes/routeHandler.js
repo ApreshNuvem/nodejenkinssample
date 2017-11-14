@@ -333,7 +333,7 @@ module.exports = app;
  * Default Homepage
  */
 app.get('/newapi', function(req, res, next) {
-res.send("<h2>This is newapi </h2>");
+res.send("<h2>This is newapi Test </h2>");
 
 });
 
