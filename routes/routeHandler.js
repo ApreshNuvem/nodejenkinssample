@@ -249,6 +249,13 @@ app.get('/test2', function(req, res, next) {
   res.end();
 });
 
+/**
+ * Default Homepage
+ */
+app.get('/test3', function(req, res, next) {
+res.send("<h2>This is Test 3 Api</h2>");
+});
+
 
 /**
  * Lead Filtering
@@ -340,7 +347,6 @@ res.send("<h2>This is newapi Test 1</h2>");
  */
 app.get('/newapi', function(req, res, next) {
 res.send("<h2>This is newapi Test </h2>");
-
 });
 
 
