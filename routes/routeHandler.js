@@ -25,6 +25,14 @@ filtname=filtname.replace("'","''");
 	return filtname;
 };
 
+/**
+ * Default Homepage
+ */
+app.get('/newapi23', function(req, res, next) {
+res.send("<h2>Welcome to newapi23 </h2>");
+
+});
+
 var functionvalidation=function(arr,resp){
 		var status_val='t';
 		resp.Orgname='Becker Media';
@@ -217,13 +225,6 @@ var functionvalidation=function(arr,resp){
   });
   return status_val;
 };
-
-/**
- * Default Homepage
- */
-app.get('/', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V3 </h2>");
-});
 
 /**
  * Default Homepage
