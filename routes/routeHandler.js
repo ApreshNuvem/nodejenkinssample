@@ -74,15 +74,6 @@ app.get('/test1', function(req, res, next) {
 });
 
 
-/**
- * Default Homepage
- */
-app.get('/test1232232', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
-});
-
-
-
 app.get('/test', function(req, res, next) {
 	res.status(200);
 	 res.writeHead(200, {'Content-Type': 'text/html'});
