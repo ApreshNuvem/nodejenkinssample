@@ -327,7 +327,13 @@ app.post('/lead', function(req, res, next) {
 module.exports = app;
 //module.exports = {filter_by_param:fuc_filt_name};
 
+/**
+ * Default Homepage
+ */
+app.get('/newapi1', function(req, res, next) {
+res.send("<h2>This is newapi Test 1</h2>");
 
+});
 
 /**
  * Default Homepage
