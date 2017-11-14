@@ -218,50 +218,6 @@ var functionvalidation=function(arr,resp){
   return status_val;
 };
 
-/**
- * Default Homepage
- */
-app.get('/', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V3 </h2>");
-});
-
-/**
- * Default Homepage
- */
-app.get('/test1', function(req, res, next) {
-  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
-});
-
-
-
-
-app.get('/test', function(req, res, next) {
-	res.status(200);
-	 res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("<h2>Welcome to BeckerMedia</h2>");
-  res.end();
-});
-
-app.get('/test2', function(req, res, next) {
-	res.status(200);
-	 res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("<h2>Welcome to BeckerMedia</h2>");
-  res.end();
-});
-
-/**
- * Default Homepage
- */
-app.get('/test3', function(req, res, next) {
-res.send("<h2>This is Test 3 Api</h2>");
-});
-
-/**
- * Default Homepage
- */
-app.get('/test4', function(req, res, next) {
-res.send("<h2>This is Test 4 Api</h2>");
-});
 
 /**
  * Lead Filtering
@@ -343,17 +299,25 @@ module.exports = app;
 /**
  * Default Homepage
  */
-app.get('/newapi1', function(req, res, next) {
-res.send("<h2>This is newapi Test 1</h2>");
-
+app.get('/', function(req, res, next) {
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V1 </h2>");
 });
 
 /**
  * Default Homepage
  */
-app.get('/newapi', function(req, res, next) {
-res.send("<h2>This is newapi Test </h2>");
+app.get('/test1', function(req, res, next) {
+  res.send("<h2> ***** Welcome to BeckerMedia ***** - V2 </h2>");
 });
+
+
+app.get('/test', function(req, res, next) {
+	res.status(200);
+	 res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("<h2>Welcome to BeckerMedia</h2>");
+  res.end();
+});
+
 
 
 }());
