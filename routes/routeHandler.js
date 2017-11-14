@@ -256,6 +256,12 @@ app.get('/test3', function(req, res, next) {
 res.send("<h2>This is Test 3 Api</h2>");
 });
 
+/**
+ * Default Homepage
+ */
+app.get('/test4', function(req, res, next) {
+res.send("<h2>This is Test 4 Api</h2>");
+});
 
 /**
  * Lead Filtering
