@@ -1011,7 +1011,7 @@ update public.clientvsleadfields set pplparam='LeadBuyerID',ppcparam='LeadBuyerI
 --select * from public.leadcolumns('Hunter');
 --DROP SCHEMA public CASCADE;
 --CREATE SCHEMA public;
-DROP FUNCTION IF EXISTS public.leadfieldsbyclient(character);
+DROP FUNCTION IF EXISTS public.leadfieldsbyclient(character) CASCADE;
 ------------------- Write function start -------------------
 CREATE OR REPLACE FUNCTION public.leadfieldsbyclient(p_Client character varying)
   RETURNS Table(
