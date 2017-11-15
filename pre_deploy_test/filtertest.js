@@ -5,7 +5,6 @@ var assert = chai.assert;
 var routeHandler = require('../routes/routeHandler.js');
 var filter_by_param = routeHandler.filter_by_param;
 
-
 describe('Predeployment Filter Test', function() {
 	
   it('should check for LeadBuyerID exists', function() {
