@@ -1011,28 +1011,42 @@ update public.clientvsleadfields set pplparam='LeadBuyerID',ppcparam='LeadBuyerI
 --select * from public.leadcolumns('Hunter');
 --DROP SCHEMA public CASCADE;
 --CREATE SCHEMA public;
-DROP FUNCTION IF EXISTS public.leadfieldsbyclient(character) CASCADE;
+---DROP FUNCTION IF EXISTS public.leadfieldsbyclient(character) CASCADE;
 ------------------- Write function start -------------------
-CREATE OR REPLACE FUNCTION public.leadfieldsbyclient(p_Client character varying)
+CREATE OR REPLACE FUNCTION public.leadfieldsbyclient( p_Client character varying)
   RETURNS Table(
-	clientvsleadfieldsid integer,
-	clientid integer,
-	ppl boolean,
-	pplreq boolean,
-	pplparam varchar(50),
-	ppc boolean,
-	ppcreq boolean,
-	ppcparam varchar(50)
-	)  AS
+ clientvsleadfieldsid integer,
+ clientid integer,
+ leadcolname varchar(50),
+ ppl boolean,
+ pplreq boolean,
+ pplparam varchar(50),
+ ppc boolean,
+ ppcreq boolean,
+ ppcparam varchar(50),
+ statuscode varchar(50)
+ )  AS
 $BODY$
+--declare d_orgname varchar(50);
+--declare d_rtval integer ;
     BEGIN
-	
-      RETURN  QUERY  select clientvsleadfields.clientvsleadfieldsid,clientvsleadfields.clientid,clientvsleadfields.ppl ,clientvsleadfields.pplreq,clientvsleadfields.pplparam,
-      clientvsleadfields.ppc,clientvsleadfields.ppcreq,clientvsleadfields.ppcparam
-      from clientvsleadfields INNER JOIN clients on (clientvsleadfields.clientid=clients.clientid) where clients.clientname=p_Client;
+ --EXECUTE 'SELECT  orgname  FROM organizations inner join clients on (clients.orgid=organizations.orgid)  where clients.clientname=$1 LIMIT 1'
+ --  INTO d_orgname
+ --  USING p_Client;
+ 
+ --select leadfieldsbyclientrefresh(d_orgname,p_Client) into d_rtval ;
+ RETURN  QUERY  select clientvsleadfields.clientvsleadfieldsid,clientvsleadfields.clientid,clientvsleadfields.leadcolname,
+ clientvsleadfields.ppl,clientvsleadfields.pplreq,clientvsleadfields.pplparam,clientvsleadfields.ppc,clientvsleadfields.ppcreq,
+ clientvsleadfields.ppcparam,clientvsleadfields.statuscode
+ from clientvsleadfields INNER JOIN clients on (clientvsleadfields.clientid=clients.clientid) 
+ where clients.clientname=p_Client  order by clientvsleadfields.clientvsleadfieldsid;
+ --SELECT  orgname  FROM organizations inner join clients on (clients.orgid=organizations.orgid)  where clients.clientname='Hunter' LIMIT 1
+   
     END;
     $BODY$
   LANGUAGE plpgsql VOLATILE;
+  
+-------------------- Write function end ---------------------------
 
 
 
