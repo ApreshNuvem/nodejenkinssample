@@ -6,8 +6,6 @@ var routeHandler = require('../routes/routeHandler.js');
 var filter_by_param = routeHandler.filter_by_param;
 
 
-console.log("teset",process.env.NODE_ENV);
-
 describe('Predeployment Filter Test', function() {
 	
   it('should check for LeadBuyerID exists', function() {
@@ -40,7 +38,7 @@ describe('Predeployment Filter Test', function() {
 	  var arr = ['LeadBuyerID=Ancora Education','LocationID=28','VendorID=MASH'];
 	  
 	  var TestID = filter_by_param(arr,'TestID=');  	  
-	  assert.equal(TestID, 'NA');
+	  assert.equal(TestID, 'NAT');
   
   });
   
