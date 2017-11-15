@@ -989,6 +989,7 @@ IF  EXISTS( SELECT column_name FROM information_schema.columns WHERE table_name=
 END$$;
 ---------------temp code for filling mastervalues----------------------------
 --select * from public.clientvsleadfields order by clientvsleadfieldsid;
+/*
 update  public.clientvsleadfields set ppl=false,pplreq=false,ppc=false,ppcreq=false WHERE clientvsleadfieldsid>7;
 update public.clientvsleadfields set pplparam='firstname',ppcparam='firstname',statuscode='SR-513' WHERE clientvsleadfieldsid=1;
 update public.clientvsleadfields set pplparam='lastname',ppcparam='lastname',statuscode='SR-513' WHERE clientvsleadfieldsid=2;
@@ -1004,6 +1005,7 @@ update public.clientvsleadfields set pplparam='address',ppcparam='address',statu
 update public.clientvsleadfields set pplparam='city',ppcparam='city',statuscode='SR-516' WHERE clientvsleadfieldsid=14;
 update public.clientvsleadfields set pplparam='country',ppcparam='country',statuscode='SR-502' WHERE clientvsleadfieldsid=16;
 update public.clientvsleadfields set pplparam='LeadBuyerID',ppcparam='LeadBuyerID' ,statuscode='SR-518'WHERE clientvsleadfieldsid=22;
+*/
 --select * from clientvsleadfields,clients;
 --select * from clientvsleadfields INNER JOIN clients on (clientvsleadfields.clientid=clients.clientid); --INNER JOIN cities ON (weather.city = cities.name);
 --select * from clientvsleadfields left JOIN clients on (clientvsleadfields.clientid=clients.clientid);

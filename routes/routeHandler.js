@@ -122,7 +122,7 @@ app.get('/', function(req, res, next) {
 
 
 
-  res.send("<h2>Welcome to BeckerMedia -V1</h2>");
+  res.send("<h2>Welcome to BeckerMedia -V2</h2>");
 
 
 
@@ -390,7 +390,15 @@ resp.Message='Succes';
 
 });
 
+app.get('/test', function(req, res, next) {
 
+
+
+  res.send("<h2>Test Api</h2>");
+
+
+
+});
 
 module.exports = app;
 

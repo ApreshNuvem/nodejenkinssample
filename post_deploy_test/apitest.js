@@ -16,5 +16,16 @@ describe("Test 1",function(){
         done();
       });
   });
- 
+  
+  
+  it("Check User Api Status Code 200", function (done) {
+      request
+      .post('lead')      
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+   });
+
 });
