@@ -1,6 +1,6 @@
-cd D:\nodemicroservices\temp\BeckerMedia
+cd D:\nodemicroservices\temp\nodejenkinssample
 D:
-git add *
+git add --all
 git commit -m 'modified'
 git push
 git config credential.helper store
