@@ -5,8 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "node server",
-    "test": "mocha"
+    "start": "node server"
   },
   "dependencies": {
     "async": "^2.6.0",
