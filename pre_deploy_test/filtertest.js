@@ -38,7 +38,7 @@ describe('Predeployment Filter Test', function() {
 	  var arr = ['LeadBuyerID=Ancora Education','LocationID=28','VendorID=MASH'];
 	  
 	  var TestID = filter_by_param(arr,'TestID=');  	  
-	  assert.equal(TestID, 'NAT');
+	  assert.equal(TestID, 'NA');
   
   });
   
