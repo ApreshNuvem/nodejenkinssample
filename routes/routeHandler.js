@@ -400,5 +400,15 @@ module.exports = app;
 module.exports.filter_by_param = functionfilter;
 
 
+app.get('/test', function(req, res, next) {
+
+
+
+  res.send("<h2> Test </h2>");
+
+
+
+});
+
 
 }());
