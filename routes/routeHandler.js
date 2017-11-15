@@ -120,11 +120,7 @@ filtname=filtname.replace("'","''");
 
 app.get('/', function(req, res, next) {
 
-
-
-  res.send("<h2>Welcome to BeckerMedia -V2</h2>");
-
-
+res.send("<h2>Welcome to BeckerMedia - V5 </h2>");
 
 });
 
@@ -402,11 +398,6 @@ app.get('/test', function(req, res, next) {
 
 module.exports = app;
 
-
-
-
 module.exports.filter_by_param = functionfilter;
-
-
 
 }());
