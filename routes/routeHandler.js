@@ -224,21 +224,23 @@ app.post('/lead', function(req, res, next) {
 
 
 
-	resp.Orgname='Becker Media';
+	//resp.Orgname='Becker Media';
 
 
 
-	resp.Client='Hunter';
+	resp.Client=functionfilter(arr,'LeadBuyerID=');
+
+console.log(resp.Client);
+
+	resp.ClientStatusCode='In progress';
 
 
 
-	resp.ClientStatusCode='200';
+	resp.Message='In progress';
+	
+	resp.LeadBuyerID=resp.Client;
 
-
-
-	resp.Fields='';
-
-	resp.Fields2='';
+	//resp.Fields2='';
 
 	var client = new pg.Client(connectionString);
 
@@ -309,10 +311,9 @@ app.post('/lead', function(req, res, next) {
 				console.log(rowval.leadcolname+'('+ rowval.pplparam+')='+filtname+';');
 
 				status_val='f';
+				resp.Message='Failed';
 
-				
-
-				resp.Fields = rowval.pplparam ;
+				resp.Message = rowval.pplparam ;
 
 				
 
@@ -321,8 +322,10 @@ app.post('/lead', function(req, res, next) {
 
 
 			 }
-
-
+			 resp[rowval.pplparam]=filtname;
+// var val=stringformat("{0} :  {1}",rowval.pplparam,filtname);// : stringformat("{0}",filtname)
+// console.log(val);
+			// resp.push({ filtname:filtname});
 
 		}	
 
@@ -333,22 +336,16 @@ app.post('/lead', function(req, res, next) {
 
 
 	// /////////////// Validations Start as per Client wise Configuration //////////////////////////////////////
+if(status_val=='t'){
 
 
-
-	}
-
-
-
-		if(status_val=='t'){
-
-
-
+if(result.rowCount>0){
 		resp.ClientStatusCode='SC-100';
 
-
+resp.Message='Succes';
 
 		console.log('Status=','SC-100');
+}
 
 
 
@@ -365,6 +362,13 @@ app.post('/lead', function(req, res, next) {
 
 
 		}
+
+
+	}
+
+
+
+		
 
 
 
@@ -389,6 +393,7 @@ app.post('/lead', function(req, res, next) {
 
 
 module.exports = app;
+
 
 
 
