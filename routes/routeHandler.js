@@ -63,7 +63,7 @@ var functionvalidation=function(arr,resp){
  * Default Homepage
  */
 app.get('/', function(req, res, next) {
-res.send("<h2>Welcome to BeckerMedia - V5 </h2>");
+res.send("<h2>Welcome to BeckerMedia - V1 </h2>");
 });
 
 app.get('/test', function(req, res, next) {
@@ -152,7 +152,7 @@ app.post('/lead', function(req, res, next) {
 		}
 		console.log('----- end ---- ');
 		res.statuscode = 200;
-		res.send(resp);
+		res.send(resp)
   });
 });
 module.exports = app;
