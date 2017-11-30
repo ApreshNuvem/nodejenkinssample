@@ -6,6 +6,7 @@
       Date        : 7-Nov-2017
       History     : 7-Nov-2017
       Description : Application server configuration & exporting to access it outside of the file
+      test
       =========================================================================*/
 exports.Build = {
     Type : 'Production', //Production OR Local
